@@ -1,0 +1,32 @@
+//Employee Salary
+using System;
+namespace Salary
+{
+    class Employee
+    {
+        public void salary(int basic)
+        {
+            float da, ta, hra, net_salary;
+            da = basic*90 / 100;
+            Console.WriteLine("Daily allowance=" + da);
+            ta = basic*30 / 100;
+            Console.WriteLine("Travel allowance=" + ta);
+            hra = basic*20 / 100;
+            Console.WriteLine("Home rent allowance=" + hra);
+            net_salary = da+ta+hra+basic;
+            Console.WriteLine("Net salary=" + net_salary);
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Employee e = new Employee();
+            Console.Write("Enter the basic salary:");
+            int a = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("The Employee salary:");
+            e.salary(a);
+            Console.Read();
+        }
+    }
+}
