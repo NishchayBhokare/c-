@@ -1,0 +1,61 @@
+Q 11 )
+namespace validation
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        
+
+        private void txtemail_Leave(object sender, EventArgs e)
+        {
+           
+            string pattern = @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z";
+            if(Regex.IsMatch(txtemail.Text,pattern))
+            {
+                errorProvider1.Clear();
+            }
+            else
+            {
+                errorProvider1.SetError(this.txtemail,"Please provide valid Email Address");
+                return;
+            }
+        }
+
+        private void txtmbnum_TextChanged(object sender, EventArgs e)
+        {
+            string pattern = @"^\d{10}$";
+            if (Regex.IsMatch(txtmbnum.Text, pattern))
+            {
+                errorProvider2.Clear();
+            }
+            else
+            {
+                errorProvider2.SetError(this.txtmbnum, "Please provide valid Mobile Number");
+                return;
+            }
+
+        }
+
+        private void txtcpass_TextChanged(object sender, EventArgs e)
+        {
+            if (txtpass.Text != "" && txtcpass.Text == txtpass.Text)
+            {
+                errorProvider3.SetError(txtcpass, "");
+            }
+            else
+            {
+                errorProvider3.SetError(txtcpass, "Please Enter Confirm Password");
+            }
+        }
+
+      
+    } 
+}
+
+
+
+
