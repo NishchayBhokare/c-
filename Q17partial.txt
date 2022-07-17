@@ -1,0 +1,100 @@
+// includes both class and method
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Exp_17
+{
+
+    public partial class Class1
+    {
+        public void Method1()
+        {
+            Console.WriteLine("This is  Method 1");
+        }
+    }
+
+    public partial class Class1
+    {
+        public void Method2()
+        {
+            Console.WriteLine("This is Method 2");
+        }
+    }
+    class Program
+    {
+        public static void Main(String[] arhs)
+        {
+            Class1 class1 = new Class1();
+            class1.Method1();
+            class1.Method2();
+        }
+
+    }
+}
+
+
+
+//partial class only 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+public partial class Coords
+{
+    private int x;
+    private int y;
+
+    public Coords(int x, int y)
+    {
+        this.x = x;
+        this.y = y;
+    }
+}
+
+public partial class Coords
+{
+    public void Print()
+    {
+        Console.WriteLine("Coords: {0},{1}", x, y);
+    }
+}
+
+class TestCoords
+{
+    static void Main()
+    {
+        Coords myCoords = new Coords(10, 15);
+        myCoords.Print();
+        Console.ReadKey();
+    }
+}
+
+
+
+//Partial method only
+using System;  
+namespace CSharpFeatures  
+{  
+    partial class A  
+    {  
+        // Declaring partial method  
+        partial void ShowMSG(string msg);  
+    }  
+    partial class A  
+    {  
+        // Implimenting partial method  
+        partial void ShowMSG(String msg)  
+        {  
+            Console.WriteLine(msg);  
+        }  
+        public static void Main(string[] args)  
+        {  
+            // Calling partial method.  
+            new A().ShowMSG("Welcome to the JavaTpoint");  
+        }  
+    }  
+}

@@ -1,0 +1,35 @@
+Q14)
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace WindowsFormsApplication3
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+        WebClient wc = new WebClient();
+        private void button1_Click(object sender, EventArgs e)
+        {
+           
+            wc.DowloadProgressChanged+=new wc.DowloadProgressChangedEventhandler(wc_DowloadProgressChanged);
+            wc.DownloadFileAsync(new Uri(textBox1.Text.Trim()), @" "+"Downloaded"+Path.GetExtension(textBox1.Text));
+        }
+        public void wc_DowloadProgressChanged(Object sender, DownloadProgressChangedEventArgs e)
+        {
+            pDownloadStatus.Value = e.ProgressPerentage;
+        }
+       
+
+
+       
+    }
+}

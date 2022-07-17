@@ -1,0 +1,104 @@
+Q3.
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Exp_03
+{
+
+    public interface Sport
+    {
+        void marks(double m);
+    }
+
+    public interface Grade
+    {
+        void grades();
+    }
+
+
+    public class Student : Sport, Grade
+    {
+        public string name;
+        public int Roll_no;
+        public double physics, chemistry, mathematics;
+        public double sports_marks = 90;
+        public double total;
+        public double percentage;
+        public string gr;
+
+
+        public void marks(double m)
+        {
+             Console.WriteLine("Sports Marks = {0}", sports_marks);
+        }
+
+        public void calculateResult()
+        {
+            total = physics + chemistry + mathematics + sports_marks;
+            Console.WriteLine("Total(Including sports marks) = {0}", total);
+            
+            percentage = total/4;
+            Console.WriteLine("Percentage = {0}%", percentage);
+
+            
+        }
+        
+        public void grades()
+        {
+            if(percentage >= 75)
+            {
+                gr = "A";
+                Console.WriteLine("Grade: {0}", gr);
+            }
+            else if (percentage < 75 && percentage >= 65)
+            {
+                gr = "B";
+                Console.WriteLine("Grade: {0}", gr);
+            }
+            else if (percentage < 65 && percentage >= 55)
+            {
+                gr = "C";
+                Console.WriteLine("Grade: {0}", gr);
+            }
+            else if (percentage < 55 && percentage >= 45)
+            {
+                gr = "D";
+                Console.WriteLine("Grade: {0}", gr);
+            }
+            else
+            {
+                gr = "You are fail";
+                Console.WriteLine("Grade: {0}", gr);
+            }
+        }
+
+
+    }
+    class Program
+    {
+        public static void Main(String[] args)
+        {
+            Student s1 = new Student();
+            Console.WriteLine("Enter the name of Student: ");
+            s1.name = Console.ReadLine();
+
+            Console.WriteLine("Enter Roll No.: ");
+            s1.Roll_no = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Enter Physics Marks: ");
+            s1.physics = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Enter Chemistry Marks: ");
+            s1.chemistry = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Enter Mathematics Marks: ");
+            s1.mathematics = Convert.ToInt32(Console.ReadLine());
+
+            s1.calculateResult();
+            s1.grades();
+        }
+    }
+}

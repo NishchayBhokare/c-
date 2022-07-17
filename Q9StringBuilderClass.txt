@@ -1,0 +1,98 @@
+//Q9 string & string builder 
+
+// Program 1
+//converting string to string builder.
+using System;
+using System.Text;
+using System.Collections;
+
+class GFG {
+	// Concatenates to String
+	public static void concat1(String s1)
+	{
+
+		// taking a string which
+		// is to be Concatenate
+		String st = "COE";
+
+		// using String.Concat method
+		// you can also replace it with
+		// s1 = s1 + "COE";
+		s1 = String.Concat(s1, st);
+	}
+
+	// Concatenates to StringBuilder
+	public static void concat2(StringBuilder s2)
+	{
+
+		// using Append method
+		// of StringBuilder class
+		s2.Append("COE");
+	}
+
+	// Main Method
+	public static void Main(String[] args)
+	{
+
+		String s1 = "JJM";
+		concat1(s1); // s1 is not changed
+		Console.WriteLine("Using String Class: " + s1);
+
+		StringBuilder s2 = new StringBuilder("JJM");
+		concat2(s2); // s2 is changed
+		Console.WriteLine("Using StringBuilder Class: " + s2);
+	}
+}
+
+
+
+// program 2
+//converting string builder to string
+
+using System;
+        class Program
+    {
+        static void Main(string[] args)
+        {
+            string fname;                 //Declaring a string variable
+            string mname;                 //Declaring a string variable
+            string lname;                 //Declaring a string variable
+            Console.WriteLine("Enter your first name");
+            fname=Console.ReadLine();
+            Console.WriteLine("Enter your middle name");
+            mname = Console.ReadLine();
+            Console.WriteLine("Enter your last name");
+            lname = Console.ReadLine();
+            string completename = fname +"\t"+ mname +"\t"+ lname; //Concatenating the string values
+            Console.WriteLine("Your complete name is " + completename);
+            Console.WriteLine("                                     ");
+            Console.WriteLine("Your name in UPPERCASE is " + completename.ToUpper()); //Converting to UPPERCASE
+            Console.WriteLine("                                     ");
+            Console.WriteLine("Your name in LOWERCASE is " + completename.ToLower()); //Converting to UPPERCASE
+            Console.WriteLine("           ");
+            Console.WriteLine("Enter the new first name with which you want to replace your previous first name");
+            string newname = Console.ReadLine();
+            Console.WriteLine("Your First name contains " +fname.Length+ " Characters"); 
+
+            Console.WriteLine("Your new name is " +completename.Replace(fname,newname)); //Replacing string           
+
+
+
+            string str1 = "6566.45"; 
+            string str2 = "098.120";
+            // Converting both strings to floating-point numbers
+            Single sngl1 = Convert.ToSingle(str1);
+            Single sngl2 = Convert.ToSingle(str2);
+            Console.WriteLine("Single 1 = {0}", sngl1);
+            Console.WriteLine("Single 2 = {0}", sngl2);
+            // Converting both strings to Double
+
+            double x = Convert.ToDouble(str1);
+            double y = Convert.ToDouble(str2);
+
+            Console.WriteLine("Double 1 = {0}", x);
+            Console.WriteLine("Double 2 = {0}", y);
+
+        }
+    }
+    

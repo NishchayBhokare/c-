@@ -1,0 +1,49 @@
+Q13 
+//
+using System;
+using System.Net;
+using System.Net.Sockets;
+class MyClient
+{
+            public static void Main()
+            {
+                        IPHostEntry IPHost = Dns.GetHostEntry("www.hotmail.com");
+                        Console.WriteLine(IPHost.HostName);
+                        string []aliases = IPHost.Aliases;
+                        Console.WriteLine(aliases.Length);
+                        IPAddress[] addr = IPHost.AddressList;
+                        Console.WriteLine(addr.Length);
+                          for(int i= 0; i < addr.Length ; i++)
+                        {
+                                    Console.WriteLine(addr[i]);
+                        }
+            }
+}
+
+
+// server slides.
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Net.NetworkInformation;
+
+      class NetDetails
+    {
+          static void Main(string[] args)
+        {
+            NetworkInterface [] niArr = NetworkInterface.GetAllNetworkInterfaces();
+            Console.WriteLine("Retriving basic information of network.\n\n");
+              foreach(NetworkInterface tempNetworkInterface in niArr)
+            {
+                Console.WriteLine("Network Discription  :  " + tempNetworkInterface.Description);
+                Console.WriteLine("Network ID  :  " + tempNetworkInterface.Id);
+                Console.WriteLine("Network Name  :  " + tempNetworkInterface.Name);
+                Console.WriteLine("Network interface type  :  " + tempNetworkInterface.NetworkInterfaceType.ToString());
+                Console.WriteLine("Network Operational Status   :   " + tempNetworkInterface.OperationalStatus.ToString());
+                Console.WriteLine("Network Spped   :   " + tempNetworkInterface.Speed);
+                Console.WriteLine("Support Multicast   :   " + tempNetworkInterface.SupportsMulticast);
+                Console.WriteLine();
+            }
+        }
+    }

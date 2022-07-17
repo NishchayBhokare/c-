@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using mathlibrary2;
+
+
+namespace usemymathlibrary
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {   Console.WriteLine("Enter First number:");
+            double num1=Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Enter Second number:");
+            double num2 = Convert.ToDouble(Console.ReadLine());
+            
+            mathlibrary2.Class1 c1 = new  mathlibrary2.Class1();
+           
+           double addition = c1.add( num1, num2);
+            Console.WriteLine("addition= "+addition.ToString());
+            
+          double substraction = c1.substract(num1,num2);
+            Console.WriteLine("substraction= " + substraction.ToString());
+
+            double multiplication = c1.multiply(num1,num2);
+            Console.WriteLine("multiplication= " + multiplication.ToString());
+
+            double division = c1.divide(num1,num2);        
+            Console.WriteLine("division= " + division.ToString());
+            
+            double power_fun = c1.power(num1);
+            Console.WriteLine("power= " + power_fun.ToString()); 
+            Console.ReadLine();
+        }
+    }
+}

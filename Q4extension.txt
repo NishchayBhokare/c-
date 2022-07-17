@@ -1,0 +1,23 @@
+
+// Extenion method
+
+using System;
+namespace extension
+{
+    public static class StringHelper
+    {
+        public static string GetUpperCase(this string name)
+        {
+            return name.ToUpper();
+        }
+    }
+    public class ExtensionMethodExample
+    {
+        static string name = "jjmcoe";
+        static void Main(string[] args)
+        {
+            string str = name.GetUpperCase();  // calling extension method using string instance   
+            Console.WriteLine(str);
+        }
+    }
+}

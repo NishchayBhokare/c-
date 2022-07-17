@@ -1,0 +1,90 @@
+Experiment No 6
+
+Readonly Property Example - 
+
+using System;
+namespace Tutlane
+{
+    class User
+    {
+        // Initialize Read Only Fields
+        public readonly string name = "Suresh Dasari";
+        public readonly string location;
+        public readonly int age;
+        public User()
+        {
+            location = "Hyderabad";
+            age = 32;
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            User u = new User();
+            // This will throw compile time error
+            //u.name = "Rohini Alavala";
+            Console.WriteLine("Name: {0}", u.name);
+            Console.WriteLine("Location: {0}", u.location);
+            Console.WriteLine("Age: {0}", u.age);
+            Console.WriteLine("\nPress Enter Key to Exit..");
+            Console.ReadLine();
+        }
+    }
+}
+
+Output
+Name - Suresh Dasari
+Location - Hyderabad
+Age - 32
+
+
+
+Write Only Properties -
+using System;
+namespace Tutlane
+{
+     class User
+     {
+        private string name;
+        public string Name
+        {
+           set
+           {
+              name = value;
+           }
+        }
+        private string location;
+        public string Location
+        {
+            set
+            {
+                location = value;
+            }
+        }
+        public void GetUserDetails()
+        {
+           Console.WriteLine("Name: " + name);
+           Console.WriteLine("Location: " + location);
+        }
+     }
+     class Program
+     {
+         static void Main(string[] args)
+         {
+              User u = new User();
+              u.Name = "Suresh Dasari";
+              u.Location = "Hyderabad";
+              // compile error
+              //Console.WriteLine(u.Name);
+              u.GetUserDetails();
+              Console.WriteLine("\nPress Enter Key to Exit..");
+              Console.ReadLine();
+         }
+     }
+}
+
+Output - 
+Name - Suresh Dasari
+Location - Hyderabad

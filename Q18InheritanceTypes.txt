@@ -1,0 +1,122 @@
+Q18
+//Single Inheritance
+
+using System;
+namespace Studytonight
+{
+    public class Parent
+    {
+        public void DisplayParentsAB()
+        {
+            Console.WriteLine("A and B are my parents");
+        }
+    }
+    
+    public class Son: Parent
+    {
+        public void DisplaySonC()
+        {
+            Console.WriteLine("I am the son C");
+        }
+    }
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            Son s = new Son();
+            s.DisplaySonC();
+            s.DisplayParentsAB();
+        }
+    }
+}
+
+//Hierarchal Inheritance
+using System;
+namespace Studytonight
+{
+    public class Parent
+    {
+        public void DisplayParentsAB()
+        {
+            Console.WriteLine("Ashok and Babita are my parents");
+        }
+    }
+    
+    public class ChildC: Parent
+    {
+        public void DisplayChildC()
+        {
+            Console.WriteLine("I am the child Camel");
+        }
+    }
+    
+    public class ChildD: Parent
+    {
+        public void DisplayChildD()
+        {
+            Console.WriteLine("I am the child Dany");
+        }   
+    }
+    
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            ChildC cc = new ChildC();
+            ChildD cd = new ChildD();
+            
+            cc.DisplayChildC();
+            cc.DisplayParentsAB();  // accessing parent class
+            
+            cd.DisplayChildD();
+            cd.DisplayParentsAB();   // accessing parent class
+        }
+    }
+}
+
+
+// Multilevel inheritance
+using System;
+
+namespace Tutlane
+{
+    public class A
+    {
+       public string Name;
+       public void GetName()
+       {
+          Console.WriteLine("Name: {0}", Name);
+       }
+    }
+    public class B: A
+    {
+       public string Location;
+       public void GetLocation()
+       {
+          Console.WriteLine("Location: {0}", Location);
+       }
+    }
+    public class C: B
+    {
+       public int Age;
+       public void GetAge()
+       {
+          Console.WriteLine("Age: {0}", Age);
+       }
+    }
+    class Program
+    {
+       static void Main(string[] args)
+       {
+          C c = new C();
+          c.Name = "Ajinkya Rahane";
+          c.Location = "Pune";
+          c.Age = 34;
+          c.GetName();
+          c.GetLocation();
+          c.GetAge();
+          Console.WriteLine("\nPress Any Key to Exit..");
+          Console.ReadLine();
+       }
+    }
+}
